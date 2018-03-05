@@ -6,7 +6,9 @@
 - clone 到 指定文件夹 /Demo
 - cd Demo
 - npm install
-- node app.js
+- node app.js 
+- 服务器上 使用pm2 或者是 forever sudo npm install pm2 -g 或 sudo npm install forever -g 
+- pm2 start app.js 或 forever start app.js
 
 默认监听 3000端口 [公网网址](http://118.89.242.205:3000) (对!没买域名...)
 
