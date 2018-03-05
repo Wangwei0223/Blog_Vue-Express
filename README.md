@@ -8,6 +8,6 @@
 - npm install
 - node app.js
 
-默认监听 3000端口 [公网网址](118.89.242.205:3000) (对!没买域名...)
+默认监听 3000端口 [公网网址](http://118.89.242.205:3000) (对!没买域名...)
 
-使用webpack的版本之后会上
+若使用vue-cli 和 webpack: 即把npm run build 之后的文件 放入 public 即可, 使用Express托管即可
