@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+    <H1 style="font-size: 30px">CSS居中方法总结</H1>
+    <div id="CSS">
+        <div class="container">
+            <p>以下方法父级均没有垂直居中,因为父级的父级没有设置长宽,会塌陷, 只用auto实现了水平居中</p>
+            <p>第一种 + 第二种 父级: margin:auto 子级: 负边距</p>
+
+            <div id="parent_1" class="parent">
+                <div id='child_1' class="child">
+                    <div class="css_code">
+                        <pre>     
+                                #parent_1 {
+                                    position: relative;
+                                    background-color: aqua;
+                                    width: 200px;
+                                    height: 200px;
+                                    margin: auto;
+                                }
+                                                       
+                                #child_1{
+                                    position: absolute;
+                                    background-color: blueviolet;
+                                    width: 100px;
+                                    height: 100px;
+                                    left: 50%;
+                                    top: 50%;
+                                    margin-left: -50px;
+                                    margin-top: -50px;
+                                }
+                           </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <p>第三种 父级:同上 子集:transform: translate(-50%, -50%)</p>
+            <div id="parent_2" class="parent">
+                <div id="child_2" class="child">
+                    <div class="css_code">
+                        <pre>                           
+                                #child_2 {
+                                    position: absolute;
+                                    background-color: blueviolet;
+                                    width: 100px;
+                                    height: 100px;
+                                    left: 50%;
+                                    top: 50%;
+                                    transform: translate(-50%, -50%);
+                                    font-size: 15px;
+                                }
+                           </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container" id="container_3">
+            <p>第四种 父级:table 子集:table-cell</p>
+            <div class="css_code">
+                    <pre>     
+                            #child_3 {
+                                display: table-cell;
+                                background-color: blueviolet;
+                                text-align: center;
+                                vertical-align: middle;
+                            }
+                        
+                            #child_4 {
+                                display: table-cell;
+                                background-color: pink;
+                                text-align: center;
+                                vertical-align: middle;
+                            }
+                            display: table-cell 就是把元素以td一样的形式呈现
+                            而td是行内,或者说特殊的行内
+                            行内是什么样？display:inline; 此时，元素p hello p的宽高只受内部文字影响
+                            要百分比响应父元素的宽高，只能block、inline-block
+                            
+                            所以垂直居中个文字还行,想上面两个同心 div 做不到
+                       </pre>
+                </div>
+            <div id="parent_3" class="parent">
+                <div id="child_3" class="child">
+                    子1
+                </div>
+                <div id="child_4" class="child">
+                    子2
+                </div>
+            </div>
+        </div>
+
+        <div class="container" style="margin-bottom:2px">
+            <p>第五种 Flex盒子</p>
+            <div id="parent_4">            
+                <div class="css_code">
+                <pre>
+                        #parent_4{
+                            display: flex;
+                            background-color: aqua;
+                            width: 200px;
+                            height: 200px;
+                            margin: auto;
+                            justify-content: center;
+                            align-items: center;
+                        }
+                    
+                        #child_5{
+                            flex: 1;
+                            background-color: blueviolet;
+                            width: 60px;
+                            height: 60px;
+                            margin: 2px;
+                        }
+                    
+                        #child_6{
+                            flex: 1;
+                            background-color: pink;
+                            width: 60px;
+                            height: 60px;
+                            margin: 2px;
+                        }
+                    
+                        #child_7{
+                            flex: 1;
+                            background-color: salmon;
+                            width: 60px;
+                            height: 60px;
+                            margin: 2px;
+                        }
+                </pre>
+            </div>
+                <div id="child_5" class="child"></div>
+                <div id="child_6" class="child"></div>
+                <div id="child_7" class="child"></div>
+            </div>
+        </div>
+</body>
+
+<style>
+    #CSS {
+        border: 2px solid silver;
+        font-size: 62.5%;
+    }
+
+    .css_code {
+        display: none;
+        font-size: 15px;
+        color: tomato;
+    }
+
+    .parent:hover .css_code {
+        display: block;
+    }
+
+    .container {
+        position: relative;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    #parent_1 {
+        position: relative;
+        background-color: aqua;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+
+    #child_1 {
+        position: absolute;
+        background-color: blueviolet;
+        width: 70px;
+        height: 70px;
+        left: 50%;
+        top: 50%;
+        margin-left: -35px;
+        margin-top: -35px;
+    }
+
+    #parent_2 {
+        position: relative;
+        background-color: aqua;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+
+    #child_2 {
+        position: relative;
+        background-color: blueviolet;
+        left: 50%;
+        top: 50%;
+        width: 80px;
+        height: 80px;
+        transform: translate(-50%, -50%);
+        /*translate(左,上)*/
+    }
+
+    #parent_3 {
+        display: table;
+        background-color: aqua;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+
+    #child_3 {
+        display: table-cell;
+        background-color: blueviolet;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #child_4 {
+        display: table-cell;
+        background-color: pink;
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #container_3:hover .css_code {
+        display: block;
+        position: absolute;
+        text-align: left;
+        right: 10%;
+        bottom: 10%;
+    }
+
+    #parent_4{
+        display: flex;
+        background-color: aqua;
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #parent_4:hover .css_code {
+        display: block;
+        position: absolute;
+        text-align: left;
+        right: 10%;
+        bottom: 10%;
+    }
+
+    #child_5{
+        flex: 1;
+        background-color: blueviolet;
+        width: 60px;
+        height: 60px;
+        margin: 2px;
+    }
+
+    #child_6{
+        flex: 1;
+        background-color: pink;
+        width: 60px;
+        height: 60px;
+        margin: 2px;
+    }
+
+    #child_7{
+        flex: 1;
+        background-color: salmon;
+        width: 60px;
+        height: 60px;
+        margin: 2px;
+    }
+    /*
+    display: table-cell 就是把元素以<td>一样的形式呈现
+    而<td>是行内,或者说特殊的行内
+    行内是什么样？display:inline; 此时，元素<p>hello</p>的宽高只受内部文字影响
+    要百分比响应父元素的宽高，只能block、inline-block
+    */
+
+</style>
