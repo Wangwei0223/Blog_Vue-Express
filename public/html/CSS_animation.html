@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+
+    <body>
+        <H1 style="font-size: 30px">CSS动画</H1>
+        <div class="CSS">
+            <div id="animation_1">
+                <img src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
+            </div>
+        </div>
+    </body>
+
+</html>
+
+<style>
+    .CSS {
+        border: 2px solid silver;
+        text-align:center; 
+    }
+
+    #animation_1 img{
+        width: 200px;
+        height: 200px;
+        margin: auto;
+        background: url(../img/wei.jpg);
+        animation: run_jfla 5s linear 0s infinite reverse;
+        /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    }
+    
+    @keyframes run_jfla{
+        from{
+            transform: rotate(0deg);
+        }
+
+        to{
+            transform: rotate(360deg);
+        }
+    }
+</style>
