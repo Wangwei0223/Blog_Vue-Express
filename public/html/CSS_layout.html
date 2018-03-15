@@ -223,6 +223,61 @@ display: table;
             </div>
         </div>
     </div>
+
+    <div class="CSS" style="text-align:center; font-size:1em">
+        <p>左右等宽 + 中间自适应 第六种:Flex布局</p>
+        <p>更秒了,加完display:flex之后width为实际大小,不用改回width:100%因为是flex控制比例.等宽直接把定长改为flex:1</p>
+        <p>和前面table一样,起始height:100%都可以省略</p>
+        <div class="container" id="container_6">
+            <div id="left_6">
+                左边
+                <pre class="css_code">
+#left_6, #right_6{
+    background-color: aqua;
+    height: 100%;
+    width: 200px;
+}
+                </pre>
+            </div>
+            <div id="main_6">
+                中间
+                <pre class="css_code" style="top:50%; left:50%; transform:translate(-50%, -50%)">
+#container_6{
+    display: flex; /*宽度消失*/
+}
+                                
+#main_6{
+    flex: 1;
+    background-color: blueviolet;
+    height: 100%;
+}
+                                    </pre>
+            </div>
+            <div id="right_6">
+                右边
+                <pre class="css_code">
+同左
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        占位的可见absolute的定位点
+        <div id="main_7">
+                占位的可见absolute的定位点
+                <div id="left_7" style="font-size:0.4em; z-index:2;">
+                    我是定位的mian
+                </div>
+        </div>
+
+        <div id="left_7" style="font-size:0.4em; z-index:1;">
+            我是定位的container
+        </div>
+    </div>
+
+    </div>
+
 </body>
 
 </html>
@@ -358,5 +413,36 @@ display: table;
         background-color: aqua;
         height: 100%;
         width: 200px;
+    }
+
+    #container_6{
+        display: flex; /*宽度消失*/
+    }
+
+    #main_6{
+        flex: 1;
+        background-color: blueviolet;
+        height: 100%;
+    }
+
+    #left_6, #right_6{
+        background-color: aqua;
+        height: 100%;
+        width: 200px;
+    }
+
+    #main_7{
+        position: absolute;
+        background-color: blueviolet;
+        height: 100%;
+        width: 100%;
+    }
+
+    #left_7{
+        position: absolute;
+        background-color: aqua;
+        width: 200px;
+        height: 100%;
+        border: 1px solid red;
     }
 </style>
