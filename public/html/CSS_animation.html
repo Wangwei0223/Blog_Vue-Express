@@ -1,43 +1,167 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    </head>
 
-    <body>
-        <H1 style="font-size: 30px">CSS动画</H1>
-        <div class="CSS">
-            <div id="animation_1">
-                <img src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+
+<body>
+    <H1 style="font-size: 30px">CSS动画</H1>
+    <div class="CSS">
+        <div id="animation_1">
+            <div class="line">
+                <strong>-------------></strong>
             </div>
+            <img src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
         </div>
-    </body>
+
+        <div id="animation_2">
+            <img src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
+        </div>
+
+        <div id="animation_3">
+            <div>原本</div>
+            <div>原本</div>
+            <div>原本</div>
+            <div>原本</div>
+        </div>
+
+        <div id="animation_4">
+            <p>四种常用过渡</p>
+            <img id="img_1" src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
+            <img id="img_2" src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
+            <img id="img_3" src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
+            <img id="img_4" src="https://github.com/Wangwei0223/markdown_photos/blob/master/J.fla.png?raw=true">
+        </div>
+
+    </div>
+    </div>
+</body>
 
 </html>
 
 <style>
     .CSS {
         border: 2px solid silver;
-        text-align:center; 
+        text-align: center;
     }
 
-    #animation_1 img{
+    #animation_1 {
+        position: relative;
+    }
+
+    #animation_1 img {
         width: 200px;
         height: 200px;
-        margin: auto;
-        background: url(../img/wei.jpg);
-        animation: run_jfla 5s linear 0s infinite reverse;
+        border-radius: 50%;
+        /* animation: run_jfla 5s linear 0s infinite reverse; */
         /* animation: name duration timing-function delay iteration-count direction fill-mode; */
     }
-    
-    @keyframes run_jfla{
-        from{
+
+    @keyframes run_jfla {
+        from {
             transform: rotate(0deg);
         }
 
-        to{
+        to {
             transform: rotate(360deg);
         }
+    }
+
+    .line {
+        color: rebeccapurple;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -13px;
+        animation: run_time 60s steps(60) 0s infinite;
+        transform-origin: left center;
+    }
+
+    @keyframes run_time {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    #animation_2 img {
+        width: 200px;
+        height: 200px;
+        animation: change_size 3s linear 0s infinite;
+    }
+
+    @keyframes change_size {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0;
+        }
+        100%{
+            opacity: 1;
+        }
+    }
+
+    #animation_3>div {
+        display: inline-block;
+        background-color: blue;
+        width: 60px;
+        height: 60px;
+        transition-property: background-color;
+        transition-duration: 3s;
+        transition-delay: 0s;
+        transition-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+
+    #animation_3>div::after {
+        content: '内容';
+        color: aqua;
+    }
+
+    #animation_3>div:nth-child(3) {
+        background-color: blueviolet;
+    }
+
+    #animation_3>div:hover {
+        background-color: chartreuse;
+        color: brown;
+    }
+    
+    #animation_4>img {
+        width: 200px;
+        height: 200px;
+        border: 10px solid silver;
+        border-radius: 15px;
+        transition: all 1s linear; /*transition-property, transition-duration, transition-timing-function, and transition-delay*/
+    }
+
+    #animation_4>#img_1:hover {
+        border-radius: 50%;
+        cursor: pointer;
+        box-shadow: 10px 10px 20px 3px red;
+    }
+
+    #animation_4>#img_2:hover {
+        width: 300px;
+        height: 300px;
+        cursor: pointer;
+        box-shadow: 10px 10px 20px 3px red;
+    }
+
+    #animation_4>#img_3:hover {
+        transform: rotate(20deg);
+        cursor: pointer;
+        box-shadow: 10px 10px 20px 3px red;
+    }
+
+    #animation_4>#img_4:hover {
+        filter: contrast(150%) blur(2px);
+        cursor: pointer;
+        box-shadow: 10px 10px 20px 5px red;
     }
 </style>
