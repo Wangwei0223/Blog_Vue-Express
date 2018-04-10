@@ -16,6 +16,7 @@ function Find(target, array) {
     }
     return false;
 }
+
 // 第二题 替换空格
 function replaceSpace(str) {
     return str.replace(/ /g, '%20');
